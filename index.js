@@ -1,14 +1,13 @@
 const express = require('express');
 const fs = require("fs");
-
 const app = express();
 const port = 8000;
 
 app.listen(port, (err) => {
     if (err) {
-        return console.log('something bad happened', err)
+        return console.log('Something bad happened', err)
     }
-    console.log(`server is listening on ${port}`)
+    console.log(`Server is listening on ${port}`)
 });
 
 app.get('/', (request, response) => {
@@ -33,9 +32,6 @@ const timeStart = new Date();
 app.get('/status', (request, response) => {
     const timeEstimate = (new Date() - timeStart) / 1000;
     const timeDiff = convertTime(timeEstimate);
-    console.log('timeStart', timeStart);
-    console.log('timeEstimate', timeEstimate);
-    console.log('timeDiff', timeDiff);
     response.send(`<h1>server uptime: ${timeDiff}</h1>`);
 });
 
@@ -52,7 +48,7 @@ const getEventsData = () => {
     }
 };
 
-//  // check events types and display events 
+//  check events types and display events 
 
 app.get('/api/events', function (request, response) {
     const eventsData = getEventsData();
@@ -83,9 +79,9 @@ app.get('/api/events', function (request, response) {
         });
         response.send(filteredData);
       } else {
-        response.status(400).send('incorrect type');
+        response.status(400).send('Incorrect type');
       }
-      
+
     } else {
       response.send(eventsData);
     }
@@ -95,5 +91,5 @@ app.get('/api/events', function (request, response) {
 
 app.get('*', function (request, response) {
     response.status(404).send('<h1>Page not found</h1>');
-  });
+});
 
