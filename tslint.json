@@ -1,0 +1,11 @@
+{
+	"extends": "tslint:recommended",
+	"rules": {
+		"quotemark": false,
+		"only-arrow-functions": false,
+		"object-literal-sort-keys": false,
+		"prefer-for-of": false,
+		"space-before-function-paren": false,
+		"no-console": false
+	}
+}
