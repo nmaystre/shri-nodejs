@@ -4,7 +4,7 @@
 	"main": "index.ts",
 	"scripts": {
 		"start": "ts-node index.ts",
-		"test": "echo \"Error: no tnpm i typescriptest specified\" && exit 1"
+		"test": "tslint /*.ts"
 	},
 	"author": "",
 	"license": "ISC",
