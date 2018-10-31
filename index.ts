@@ -11,7 +11,7 @@ app.listen(port, (err) => {
 	console.log(`Server is listening on ${port}`);
 });
 
-app.get('/', (request, response) => {
+app.get('/', (request: express.Request, response: express.Response): void => {
 	response.send(`<h1>Hello World!</h1>`);
 });
 
@@ -30,7 +30,7 @@ const timeStart = new Date();
 
 // get status
 
-app.get('/status', (request, response) => {
+app.get('/status', (request: express.Request, response: express.Response): void => {
 	const timeEstimate = (Number(new Date()) - Number(timeStart)) / 1000;
 	const timeDiff = convertTime(timeEstimate);
 	response.send(`<h1>server uptime: ${timeDiff}</h1>`);
@@ -51,7 +51,7 @@ const getEventsData = () => {
 
 //  check events types and display events
 
-app.get('/api/events', function(request, response) {
+app.get('/api/events', function(request: express.Request, response: express.Response): void {
 	const eventsData = getEventsData();
 	let correctTypes = [];
 
@@ -89,6 +89,6 @@ app.get('/api/events', function(request, response) {
 
 // 404
 
-app.get('*', function(request, response) {
+app.get('*', function(request: express.Request, response: express.Response): void {
 	response.status(404).send('<h1>Page not found</h1>');
 });
